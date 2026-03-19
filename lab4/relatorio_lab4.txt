@@ -1,0 +1,24 @@
+1)
+
+2)
+
+3)
+
+4.1) Como x é um signed int, 0xffffffff equivale a -1,
+que é menor que 2.
+
+4.2) Como x é um unsigned int, 0xffffffff equivale a 4294967295,
+que é maior que 2.
+
+4.3) Como y é um unsigned int e x é um signed int, x é convertido
+para o tipo de maior grandeza, logo o valor de x unsigned int equivale
+a 4294967295 que é maior que 2.
+
+5)Como sc é um signed char que vale -1, que em 8 bits é representado em
+complemento de dois como 11111111 (0xFF), ao atribuir esse valor a uma variável
+unsigned int ui, ocorre primeiro a promoção com extensão de sinal para 32 bits, resultando
+em 0xFFFFFF. Em seguida, esse mesmo padrão de bits é
+reinterpretado como sem sinal, o que equivale a 4294967295 (0xFFFFFFFF). Assim, embora
+sc represente o valor -1, após a atribuição, ui armazena o valor máximo possível para um
+unsigned int. O programa de verificação em C confirma esse comportamento ao imprimir
+ui como 4294967295 em decimal e 0xFFFFFFFF em hexadecimal.

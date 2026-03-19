@@ -22,9 +22,9 @@ int string2num (char *s, int base) {
 }
 
 int xbyte (packed_t word, int bytenum) {
-  int shift = bytenum << 3; // deslocamento = bytenum * 8
-  unsigned int byte = (word >> shift) & 0xFF; // isola o byte
-  return (int)( (signed char) byte ); // extensão de sinal
+  int shift = bytenum << 3;   // deslocamento = bytenum * 8
+  unsigned int byte = (word >> shift);   // isola o byte
+  return (int)( (signed char) byte );           // extensão de sinal
 }
 
 int main (int argc, char **argv) {
