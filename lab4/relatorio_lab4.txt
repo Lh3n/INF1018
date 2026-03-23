@@ -13,7 +13,7 @@ impressão, l aparece como -32765 e k como 32771, embora ambos tenham a mesma
 sequência binária interna. O dump evidencia isso ao exibir bytes idênticos para l e k,
 mostrando como apenas o tipo muda a interpretação do mesmo padrão de bits.
 
-3) 
+3) O programa lê dois argumentos da linha de comando: um número em hexadecimal e a posição de um byte; primeiro, converte a string hexadecimal em inteiro com `string2num`, validando cada caractere, e depois usa a função `xbyte` para extrair o byte desejado por meio de deslocamento de bits, aplicando extensão de sinal ao convertê-lo para inteiro; por fim, imprime o valor resultante em formato hexadecimal e decimal, encerrando com erro caso os argumentos estejam incorretos ou o número seja inválido.
 
 4.1) Como x é um signed int, 0xffffffff equivale a -1,
 que é menor que 2.
