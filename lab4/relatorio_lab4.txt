@@ -1,3 +1,5 @@
+c2411819 - Luiz Henrique Machado da Silva - 3WB
+
 1) Nesses programa, ao atribuir char c = 150, como char é com sinal em muitas
 implementações, o valor armazenado internamente é 150 - 256 = -106, mas a
 representação em 8 bits é 10010110 (0x96). Para short s = -3, em 16 bits complemento de
