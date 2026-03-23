@@ -1,8 +1,19 @@
-1)
+1) Nesses programa, ao atribuir char c = 150, como char é com sinal em muitas
+implementações, o valor armazenado internamente é 150 - 256 = -106, mas a
+representação em 8 bits é 10010110 (0x96). Para short s = -3, em 16 bits complemento de
+dois, o valor fica 11111111 11111101 (0xFFFD). Já int i = -151, em 32 bits complemento de
+dois, resulta em 11111111 11111111 11111111 01101001 (0xFFFFFF69). Assim, o dump
+deve mostrar, em ordem de memória, os bytes correspondentes a essas representações,
+confirmando os cálculos.
 
-2)
+2) Nesse programa, o short l = -32765 em complemento de dois de 16 bits gera 10000000
+00000011 (0x8003), enquanto unsigned short k = 32771 ocupa os mesmos 16 bits
+10000000 00000011, mas interpretados como valor positivo sem sinal. Por isso, na
+impressão, l aparece como -32765 e k como 32771, embora ambos tenham a mesma
+sequência binária interna. O dump evidencia isso ao exibir bytes idênticos para l e k,
+mostrando como apenas o tipo muda a interpretação do mesmo padrão de bits.
 
-3)
+3) 
 
 4.1) Como x é um signed int, 0xffffffff equivale a -1,
 que é menor que 2.
