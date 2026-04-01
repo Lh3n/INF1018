@@ -12,7 +12,7 @@ int main() {
 /*
 DICIONARIO
 %ebx = i
-%r12 = p
+%r12 = *p
 %r13 = sum
 */
 
