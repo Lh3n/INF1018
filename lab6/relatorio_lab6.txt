@@ -1,0 +1,29 @@
+c2411819 - Luiz Henrique Machado da Silva - 3WB
+
+1) O vetor nums é percorrido com um laço, onde %ebx
+controla o índice (como a variável i) e %r12 aponta
+para o vetor. A cada iteração, o valor atual é carregado
+e impresso com printf. Em seguida, o índice é incrementado
+e o ponteiro avança 4 bytes (tamanho de um inteiro).
+O processo se repete até o limite do vetor, reproduzindo em
+assembly o comportamento do laço for em C.
+
+2) Em vez de imprimir cada valor, o assembly usa %r13d como
+acumulador da soma. O laço percorre o vetor com %ebx (índice)
+e %r12 (ponteiro), somando cada elemento ao acumulador. Ao final,
+o printf é chamado apenas uma vez para exibir o resultado total,
+mantendo o restante da estrutura padrão do código.
+
+3) No assembly, cada elemento do vetor é testado usando uma
+operação AND com 1: se o resultado for diferente de zero, o
+número é ímpar e não é impresso. Caso contrário, sendo par,
+o valor é enviado ao printf. O laço continua sendo controlado
+por %ebx (contador) e %r12 (ponteiro), garantindo que apenas os
+elementos pares do vetor sejam exibidos.
+
+4) O array nums passa a usar .byte, fazendo com que cada elemento
+ocupe 1 byte. No laço, o ponteiro avança de 1 em 1, e a instrução
+movsbl é usada para carregar o valor e expandi-lo com sinal para 32 bits.
+Isso garante que números negativos sejam interpretados corretamente.
+O restante do código mantém a mesma lógica, com controle do laço e
+impressão dos valores.

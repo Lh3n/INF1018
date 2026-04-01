@@ -10,9 +10,9 @@ int main() {
 */
 /*
 DIC
-%ecx = i
+%ebx = i
 %r12 = *p
-%ebx = temp
+%edx = temp
 */
 
 .data
@@ -22,22 +22,36 @@ Sf:  .string "%d\n"    # string de formato para printf
 .text
 .globl main
 main:
-    pushq   %rbp
-    movq    %rsp, %rbp
-    subq    $16, %rsp
-    movq    %rbx, -8(%rbp)
-    movq    %r12, -16(%rbp)
+  pushq   %rbp
+  movq    %rsp, %rbp
+  subq    $16, %rsp
+  movq    %rbx, -8(%rbp)
+  movq    %r12, -16(%rbp)
 
-    movl    $0, %ecx            # i = 0
-    movq    $nums, %r12         # p = nums
+  movl    $0, %ebx            # i = 0
+  movq    $nums, %r12         # p = nums
 
 L1:
-    cmpl    $0, %ecx            # if (i == 0)?
-    je      L2
-    movl    (%r12d), %ebx       # temp = p
+  cmpl    $4, %ebx            # if (i == 4)?
+  je      L2
 
-    andl  $1, %edx       # edx = (*p & 1)
+  movl    (%r12), %edx        # temp = *p
 
+  andl    $1, %edx            # ebx = (*p & 1)
+  jne     skip_print          # se != 0, número ímpar (pular)
 
+  movq    $Sf, %rdi
+  movl    (%r12), %esi
+  call    printf
+
+skip_print:
+  addl    $1, %ebx            # i++
+  addq    $4, %r12            # p++
+  jmp     L1                  # votla pro loop
 
 L2:
+  movq    $0, %rax            # valor de retorno da main
+  movq    -8(%rbp), %rbx
+  movq    -16(%rbp), %r12
+  leave
+  ret
