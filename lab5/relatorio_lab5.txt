@@ -1,23 +1,38 @@
 c2411819 - Luiz Henrique Machado da Silva - 3WB
 
-1)
+1) O array b[2] de inteiros ocupa 8 bytes (4 bytes por elemento) e seus valores são
+guardados de forma contígua em formato little-endian. Já o array bidimensional a[2][3]
+de short ocupa 12 bytes (6 elementos de 2 bytes), também armazenados sequencialmente
+em ordem de linha. A análise do dump confirma que ambos os arrays são organizados de
+forma contínua na memória, sem padding, refletindo exatamente essa estrutura.
 
-2)
+2) Na struct X, o campo a (int) ocupa os primeiros 4 bytes, seguido por b (short) com
+2 bytes. Em seguida, há 2 bytes de padding inseridos para alinhar corretamente o próximo
+campo. Por fim, c (int) ocupa mais 4 bytes. Assim, o tamanho total da estrutura é 12 bytes,
+e não 10, devido ao padding necessário para garantir acesso eficiente à memória.
 
 3)
-a)
+a) Tamanho da estrutura: 12 bytes
+1 byte (char) + 3 bytes (pad) + 4 bytes (int) + 1 byte (char) + 3 bytes (pad)
 
-b)
+b) Tamanho da estrutura: 16 bytes 
+8 bytes (long) + 1 byte (char) + 7 bytes (pad)
 
-c)
+c) Tamanho da estrutura: 16 bytes 
+4 bytes (int) + 1 byte (char) + 1 bytes (char) + 2 bytes (pad)
 
-d)
+d) Tamanho da estrutura: 24 bytes 
+8 bytes (long) + 1 byte (char) + 7 bytes (pad) + 1 byte (char) + 7 bytes (pad)
 
-e)
+e) Tamanho da estrutura: 3 bytes 
+1 byte (char) + 1 byte (char) + 1 byte (char)
 
-f)
+f) Tamanho da estrutura: 16 bytes 
+2 bytes (short) + 2 bytes (pad) + 4 bytes (int) + 
+3 byte (char[3]) + 1 byte (pad) + 2 bytes (short) + 2 bytes (pad)
 
-g)
+g) Tamanho da estrutura: 8 bytes 
+4 bytes (int) + 5 bytes (char[5]) – 1 byte (ajuste)
 
-h)
-
+h) Tamanho da estrutura: 6 bytes 
+2 bytes (short) + 5 bytes (char[5]) – 1 byte (ajuste)
