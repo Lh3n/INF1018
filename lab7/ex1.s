@@ -33,7 +33,7 @@ L1:
   cmpb  $0, (%r12)  /* if (*pc == 0) ? */
   je  L2          /* goto L2 */
 
-  movsbl  (%r12), %eax    /* eax = *r12 (estendendo o byte para 32 bits */
+  movsbl  (%r12), %eax    /* eax = *r12 (estendendo o byte para 32 bits) */
 
 /*************************************************************/
 /* este trecho imprime o valor de %eax (estraga %eax)  */
