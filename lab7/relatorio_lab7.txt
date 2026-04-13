@@ -1,0 +1,9 @@
+Luiz Henrique Machado da Silva - 2411819 - 3WB
+
+1) O programa percorre uma string até o terminador nulo, imprimindo cada caractere, com o assembly reproduzindo esse comportamento usando ponteiro e comparação com zero.
+
+2) O código foi modificado para ignorar os caracteres “{” e “}”, e o assembly implementa isso com comparações e desvios condicionais que pulam a impressão desses casos.
+
+3) O programa calcula e imprime o quadrado dos números de 1 a 10, com o assembly usando um registrador como contador e multiplicação direta para obter os valores.
+
+4) O código soma os elementos de um array, e o assembly realiza isso usando um acumulador e aritmética de ponteiros para acessar cada posição do vetor.
