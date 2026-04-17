@@ -1,0 +1,11 @@
+1) A função soma três inteiros recebidos em registradores,
+retorna o resultado em %eax e o programa em C a chama e imprime o valor 6.
+
+2) A função calcula o fatorial de forma recursiva,
+usando a pilha para salvar valores e multiplicando
+os resultados das chamadas até chegar ao caso base.
+
+3) O programa percorre um array somando seus elementos e,
+ao encontrar zero, substitui esse valor pela soma acumulada
+e reinicia a contagem, com o assembly reproduzindo essa lógica
+via registradores e aritmética de ponteiros.
