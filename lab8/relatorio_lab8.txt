@@ -1,0 +1,6 @@
+1) O assembly chama a função **system** passando a string "ls -ls",
+executando o comando no sistema e finalizando o programa com retorno 0.
+
+2) O programa percorre um array, aplica uma função que substitui por 0
+os valores menores que 1 e imprime os resultados, sendo essa lógica fielmente
+reproduzida em assembly com uso de laço, ponteiro e chamada de função.
