@@ -1,0 +1,9 @@
+Luiz Henrique Machado da Silva - 2411819
+
+1) A função percorre uma lista encadeada somando os valores de cada nó até encontrar NULL, usando um loop com ponteiro e acumulador em %eax.
+
+2) A versão recursiva soma os valores da lista chamando a si mesma até o caso base (NULL), acumulando o resultado na volta das chamadas.
+
+3) A função percorre um vetor de structs, chamando uma função para cada elemento e armazenando o resultado em outro campo, usando registradores e controle de loop.
+
+4) A função aplica outra função a cada elemento de um vetor, armazenando os resultados em outro vetor, com laço for e preservação de registradores.
