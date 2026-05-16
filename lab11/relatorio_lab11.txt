@@ -1,0 +1,7 @@
+1) A função novonum exibe uma mensagem, lê um inteiro com scanf,
+armazena o valor na pilha e o retorna em %eax, seguindo a convenção
+System V e usando endereçamento relativo a %rip.
+
+2) A função bemboba cria um array local na pilha, preenche seus quatro
+elementos com o valor recebido e chama addl para somar os valores,
+retornando o resultado final.
