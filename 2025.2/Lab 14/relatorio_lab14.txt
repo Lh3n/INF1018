@@ -1,0 +1,8 @@
+Luiz Henrique Machado da Silva - 2411819
+
+O programa implementa duas funções que manipulam diretamente números no padrão IEEE 754.
+A função float2 multiplica um valor float por 2 ajustando sinal, expoente e mantissa,
+tratando casos especiais como zero, infinito, NaN e números denormalizados.
+Já a função int2float converte inteiros para ponto flutuante construindo manualmente a
+representação binária do número, incluindo cálculo de expoente, mantissa e arredondamento.
+A main realiza diversos testes para validar o funcionamento correto das duas implementações.
