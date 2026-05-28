@@ -1,0 +1,52 @@
+Luiz Henrique Machado da Silva - 2411819
+
+1) O código em assembly implementa a função `foo`,
+que recebe um valor `double` e um `float` e retorna
+o resultado da expressão `(a+b)*(a-b)`. Inicialmente,
+o valor `float b` armazenado em `%xmm1` é convertido
+para `double` com `cvtss2sd`, permitindo que todas as
+operações sejam realizadas em precisão dupla. O valor
+de `a`, presente em `%xmm0`, é copiado para `%xmm2`,
+onde é calculada a soma `a+b` com `addsd`, enquanto
+`%xmm0` passa a armazenar `a-b` com `subsd`. Em seguida,
+a instrução `mulsd` multiplica os dois resultados,
+produzindo `(a+b)*(a-b)`. Por fim, o valor em `double`
+é convertido de volta para `float` com `cvtsd2ss`,
+retornado em `%xmm0`.
+
+2) O código em assembly implementa a função `foo1`,
+que recebe dois valores `float` e retorna `sin(a) + b`.
+Inicialmente, o valor de `b` é salvo na pilha para preservar
+seu conteúdo durante a chamada da função `sin`. Em seguida,
+`a` é convertido de `float` para `double` com `cvtss2sd`,
+já que a função matemática `sin` opera em precisão dupla.
+Após a chamada de `sin`, o resultado retornado em `%xmm0`
+é convertido novamente para `float` com `cvtsd2ss`. O valor
+de `b` é então recuperado da pilha e somado ao seno calculado
+usando `addss`. Por fim, a função retorna o resultado em `%xmm0`.
+
+3) O código em assembly implementa a função `foo2`, que recebe
+dois valores `float` e retorna a soma `sin(a) + cos(b)` em
+precisão dupla (`double`). Inicialmente, os parâmetros `a`
+e `b` são convertidos de `float` para `double` com `cvtss2sd`,
+pois as funções matemáticas `sin` e `cos` operam em double.
+O valor de `b` é salvo na pilha antes da chamada de `sin`,
+já que registradores podem ser sobrescritos durante chamadas
+de função. Após calcular `sin(a)`, o resultado é armazenado
+temporariamente na pilha, enquanto `b` é recuperado para calcular
+`cos(b)`. Em seguida, o valor de `sin(a)` é restaurado e somado ao
+resultado de `cos(b)` usando `addsd`. O resultado final permanece
+em `%xmm0`, registrador padrão de retorno para valores `double`.
+
+4) O código em assembly implementa a função `foo3`, que percorre um
+vetor de valores `double`, calcula o seno de cada elemento com a função
+`sin` e acumula os resultados em uma variável `r`. O ponteiro para o vetor
+é recebido em `%rdi`, o tamanho do vetor em `%esi` e o contador do laço é
+armazenado em `%ecx`. Inicialmente, `%xmm1` é zerado com `pxor`, representando
+`r = 0.0`, e seu valor é salvo na pilha. Dentro do laço, cada elemento apontado
+por `a` é carregado em `%xmm0` e passado para `sin`; o valor retornado é então
+somado ao acumulador `r` usando `addsd`. Após cada iteração, o ponteiro `a` é
+incrementado em 8 bytes, correspondendo ao tamanho de um `double`, e o
+contador `i` é incrementado até atingir `n`. Ao final, o resultado acumulado
+é retornado em `%xmm0`.
+
